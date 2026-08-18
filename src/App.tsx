@@ -9,7 +9,12 @@ import { divider } from './assets'
 import './App.css'
 
 // Lazy load project pages - add your project page imports here
-// Example: const MyProject = lazy(() => import('./pages/projects/MyProject'))
+const PHIIngestionAgent = lazy(() => import('./pages/projects/PHIIngestionAgent'))
+const CyberDefenseXR = lazy(() => import('./pages/projects/CyberDefenseXR'))
+const BiosphereDigitalTwin = lazy(() => import('./pages/projects/BiosphereDigitalTwin'))
+const LundgrenRetailXR = lazy(() => import('./pages/projects/LundgrenRetailXR'))
+const AvantSecureDashboard = lazy(() => import('./pages/projects/AvantSecureDashboard'))
+const ZeroTrustInfrastructure = lazy(() => import('./pages/projects/ZeroTrustInfrastructure'))
 const Contact = lazy(() => import('./pages/Contact'))
 
 // Lazy load below-the-fold components for better initial load
@@ -96,8 +101,13 @@ function AppContent() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/contact" element={<Contact />} />
-              {/* Add your project routes here */}
-              {/* Example: <Route path="/projects/my-project" element={<MyProject />} /> */}
+              {/* Project routes */}
+              <Route path="/projects/cyber-defense-xr" element={<CyberDefenseXR />} />
+              <Route path="/projects/phi-ingestion-agent" element={<PHIIngestionAgent />} />
+              <Route path="/projects/biosphere-digital-twin" element={<BiosphereDigitalTwin />} />
+              <Route path="/projects/lundgren-retail-xr" element={<LundgrenRetailXR />} />
+              <Route path="/projects/avant-secure-dashboard" element={<AvantSecureDashboard />} />
+              <Route path="/projects/zero-trust-infrastructure" element={<ZeroTrustInfrastructure />} />
             </Routes>
           </Suspense>
         </main>

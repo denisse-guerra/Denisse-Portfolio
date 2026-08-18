@@ -112,3 +112,350 @@ button:focus-visible {
 .animate-scaleOut {
   animation: scaleOut 0.3s ease-out;
 }
+
+/* VR Headset Component Styles */
+.vr-headset-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.vr-headset-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: visible;
+}
+
+/* Hover Text */
+.vr-hover-text {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-color, #C88b95);
+  text-align: left;
+  pointer-events: none;
+  z-index: 5;
+  animation: fadeInRight 0.4s ease-out;
+  line-height: 1.6;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Zoom Overlay */
+.vr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.5s ease;
+}
+
+/* Loading indicator */
+.vr-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+  font-size: 1rem;
+  z-index: 2;
+  pointer-events: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Responsive heights for different screen sizes */
+@media (max-width: 768px) {
+  .vr-headset-wrapper {
+    height: 400px;
+    min-height: 400px;
+  }
+  
+  .vr-hover-text {
+    font-size: 2.5rem;
+    right: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .vr-headset-wrapper {
+    height: 350px;
+    min-height: 350px;
+  }
+  
+  .vr-hover-text {
+    font-size: 1rem;
+    right: 40%;
+  }
+}
+
+.vr-headset-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+
+/* VR Museum Experience Styles */
+.vr-museum-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0d0b10;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.vr-museum-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vr-museum-canvas-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.vr-museum-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vr-museum-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+}
+
+.vr-museum-title {
+  color: #f5f0e8;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.vr-museum-exit-btn {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #f5f0e8;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.vr-museum-exit-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.vr-museum-instructions {
+  text-align: center;
+  color: rgba(245, 240, 232, 0.75);
+  font-size: 0.9rem;
+  padding-bottom: 2rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Center reticle / pointer */
+.vr-reticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.vr-reticle--active {
+  background-color: rgba(200, 139, 149, 0.85);
+  border-color: #f5f0e8;
+  transform: scale(1.6);
+}
+
+.vr-reticle-hint {
+  position: absolute;
+  top: calc(50% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f5f0e8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.2s ease;
+}
+
+/* Pause Menu (ESC) */
+.vr-pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 11, 16, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  cursor: auto;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.vr-pause-panel {
+  text-align: center;
+  padding: 2.5rem 3rem;
+  max-width: 90vw;
+}
+
+.vr-pause-title {
+  font-family: 'Makcasa', sans-serif;
+  font-size: 3rem;
+  font-weight: normal;
+  color: #C88B95;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  font-feature-settings: "salt" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1, "calt" 1, "liga" 1, "dlig" 1;
+}
+
+.vr-pause-hint {
+  color: #f5f0e8;
+  font-size: 0.95rem;
+  margin: 0 0 2.25rem 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.vr-pause-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.vr-pause-continue-btn {
+  background: #C88B95;
+  border: none;
+  color: #1a1414;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.vr-pause-continue-btn:hover {
+  background: #d9a3ac;
+  transform: translateY(-1px);
+}
+
+.vr-pause-tip {
+  color: rgba(245, 240, 232, 0.85);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.vr-pause-exit-btn {
+  background: transparent;
+  border: 1.5px solid rgba(200, 139, 149, 0.55);
+  color: #f5f0e8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.7rem 1.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.vr-pause-exit-btn:hover {
+  background: rgba(200, 139, 149, 0.16);
+  border-color: rgba(200, 139, 149, 0.9);
+  box-shadow: 0 6px 20px rgba(200, 139, 149, 0.35);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .vr-pause-title {
+    font-size: 2rem;
+  }
+
+  .vr-pause-hint {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vr-museum-title {
+    font-size: 0.85rem;
+  }
+
+  .vr-museum-exit-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+

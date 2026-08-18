@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Globe/Earth -->
+  <circle cx="100" cy="100" r="70" fill="#EABEC3" stroke="#C88B95" stroke-width="3"/>
+  
+  <!-- Geodesic dome structure -->
+  <path d="M100 30 L130 50 L130 80 L100 100 L70 80 L70 50 Z" 
+        fill="none" stroke="#8B5A65" stroke-width="2.5" opacity="0.9"/>
+  <path d="M100 30 L100 100" stroke="#8B5A65" stroke-width="2"/>
+  <path d="M70 50 L130 50" stroke="#8B5A65" stroke-width="2"/>
+  <path d="M70 80 L130 80" stroke="#8B5A65" stroke-width="2"/>
+  <path d="M70 50 L70 80" stroke="#8B5A65" stroke-width="2"/>
+  <path d="M130 50 L130 80" stroke="#8B5A65" stroke-width="2"/>
+  <path d="M70 50 L100 100 L130 50" stroke="#8B5A65" stroke-width="2"/>
+  <path d="M70 80 L100 100 L130 80" stroke="#8B5A65" stroke-width="2"/>
+  
+  <!-- Point cloud dots -->
+  <circle cx="60" cy="110" r="2" fill="#8B5A65"/>
+  <circle cx="75" cy="125" r="2" fill="#8B5A65"/>
+  <circle cx="90" cy="135" r="2" fill="#8B5A65"/>
+  <circle cx="110" cy="135" r="2" fill="#8B5A65"/>
+  <circle cx="125" cy="125" r="2" fill="#8B5A65"/>
+  <circle cx="140" cy="110" r="2" fill="#8B5A65"/>
+  <circle cx="55" cy="90" r="2" fill="#8B5A65"/>
+  <circle cx="145" cy="90" r="2" fill="#8B5A65"/>
+</svg>

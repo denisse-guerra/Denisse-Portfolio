@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Punk Babe';
-  src: url('./assets/punkbabe/PUNKBABE TRIAL.ttf') format('truetype');
+  font-family: 'Makcasa';
+  src: url('./assets/makcasa/Makcasa-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -206,7 +206,7 @@ body {
 }
 
 .signature-name {
-  font-family: 'Punk Babe', sans-serif;
+  font-family: 'Makcasa', sans-serif;
   font-size: 2.5rem;
   background: linear-gradient(135deg, var(--color-pink-500) 0%, var(--color-pink-600) 100%);
   -webkit-background-clip: text;
@@ -222,6 +222,14 @@ body {
   /* Button reset styles for accessibility */
   padding: 0.2rem 0 0 0;
   text-align: left;
+  /* Force uppercase for Makcasa stylistic features */
+  text-transform: uppercase;
+  /* Enable Makcasa stylistic alternates with specific salts */
+  font-feature-settings: "salt" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1, "calt" 1, "liga" 1, "dlig" 1;
+  -webkit-font-feature-settings: "salt" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss05" 1, "calt" 1, "liga" 1, "dlig" 1;
+  /* Enable all available stylistic alternates */
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-variant-alternates: stylistic(salt);
 }
 
 /* Apply gradient text effect only when supported */

@@ -5,10 +5,17 @@ import { useThemeColors } from '../../hooks/useThemeColors';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
-import { ExternalLink, Code, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
-import { socialLinks } from '../../config/socialLinks';
+import { ExternalLink, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { lightStars, darkStars, specialStars } from '../../assets/stars';
 import { comingSoon } from '../../assets';
+import { 
+  CyberDefenseXR,
+  BiosphereDigitalTwin,
+  LundgrenRetailXR,
+  AvantSecureDashboard,
+  ZeroTrustInfrastructure,
+  PHIIngestionAgent
+} from '../../assets/project_icons';
 
 const Projects = () => {
   const { isDarkMode } = useDarkMode();
@@ -229,36 +236,46 @@ const Projects = () => {
   // project data - these are the main cards
   const projects = [
     {
-      title: "Project One",
-      description: "A brief description of your first project. Highlight the key features and what makes it unique.",
-      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
-      icon: comingSoon,
-      detailsUrl: "/projects/project-one",
-      githubUrl: socialLinks.repositories.projectOne
+      title: "Biosphere 2 Digital Twin",
+      description: "Pioneer XR implementation transforming the renowned Biosphere 2 research facility into an immersive spatial environment. Optimized massive LiDAR point clouds for real-time rendering and integrated NVIDIA Isaac Sim for humanoid robot training.",
+      technologies: ["Unreal Engine 5", "Point Cloud", "CloudCompare", "Octree", "Isaac Sim", "NVIDIA Omniverse"],
+      icon: BiosphereDigitalTwin,
+      detailsUrl: "/projects/biosphere-digital-twin"
     },
     {
-      title: "Project Two",
-      description: "A brief description of your second project. Highlight the key features and what makes it unique.",
-      technologies: ["Python", "Flask", "PostgreSQL", "Docker"],
-      icon: comingSoon,
-      detailsUrl: "/projects/project-two",
-      githubUrl: socialLinks.repositories.projectTwo
+      title: "PHI Ingestion Agent",
+      description: "AI security pipeline protecting sensitive health data from prompt injection attacks using defense-in-depth principles. Combines YARA pattern matching with local Gemma 4B language model for threat detection, mapped to MITRE ATLAS frameworks.",
+      technologies: ["Python", "Gemma 4B", "llama.cpp", "YARA", "MITRE ATLAS", "Streamlit", "systemd", "Pytest"],
+      icon: PHIIngestionAgent,
+      detailsUrl: "/projects/phi-ingestion-agent"
     },
     {
-      title: "Project Three",
-      description: "A brief description of your third project. Highlight the key features and what makes it unique.",
-      technologies: ["JavaScript", "Express", "AWS", "Tailwind CSS"],
-      icon: comingSoon,
-      detailsUrl: "/projects/project-three",
-      githubUrl: socialLinks.repositories.projectThree
+      title: "Zero-Trust Infrastructure",
+      description: "Complete network transformation to three-tiered VLAN architecture separating DMZ, air-gapped PHI vault, and dashboard access. Designed 'Private Hallway' virtual bridge isolating AI inference traffic within hypervisor memory.",
+      technologies: ["Proxmox VE", "OPNsense", "MikroTik", "VLAN", "LUKS Encryption", "Network Security"],
+      icon: ZeroTrustInfrastructure,
+      detailsUrl: "/projects/zero-trust-infrastructure"
     },
     {
-      title: "Project Four",
-      description: "A brief description of your fourth project. Highlight the key features and what makes it unique.",
-      technologies: ["C++", "CMake", "OpenGL"],
-      icon: comingSoon,
-      detailsUrl: "/projects/project-four",
-      githubUrl: socialLinks.repositories.projectFour
+      title: "Avant Secure Dashboard",
+      description: "HIPAA-compliant web application with custom PKI infrastructure built from scratch. Established internal Certificate Authority and engineered hardened ingestion pipeline with SGID enforcement to prevent privilege escalation.",
+      technologies: ["ASP.NET", "Apache2", "Ubuntu", "PKI/SSL", "PostgreSQL", "RAG", "Linux Security"],
+      icon: AvantSecureDashboard,
+      detailsUrl: "/projects/avant-secure-dashboard"
+    },
+    {
+      title: "Lundgren Retail XR Lab",
+      description: "Full VR digital twin of the Lundgren Consumer Sciences Lab for the University of Arizona. Led technical roadmap and client management, presenting live demonstrations to former Macy's CEO Terry Lundgren.",
+      technologies: ["Unreal Engine 5", "XR Development", "Digital Twin", "Project Management", "Client Relations"],
+      icon: LundgrenRetailXR,
+      detailsUrl: "/projects/lundgren-retail-xr"
+    },
+    {
+      title: "Cyber Defense XR Training",
+      description: "Immersive cybersecurity training environment combining digital twin scenarios with real-time AI guidance. Teaches defensive strategies mapped to MITRE ATT&CK framework through hands-on spatial computing.",
+      technologies: ["Unreal Engine 5", "C++", "Python", "LiDAR", "AI/ML", "MITRE ATT&CK"],
+      icon: CyberDefenseXR,
+      detailsUrl: "/projects/cyber-defense-xr"
     }
   ];
 
@@ -498,10 +515,6 @@ const Projects = () => {
                       <ExternalLink className="h-4 w-4" aria-hidden="true" />
                       Details
                     </Link>
-                    <a href={project.githubUrl} className="project-btn-outline flex items-center gap-1" style={{ textDecoration: 'none' }} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} source code on GitHub`}>
-                      <Code className="h-4 w-4" aria-hidden="true" />
-                      Code
-                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -550,10 +563,6 @@ const Projects = () => {
                     <div className="project-btn flex items-center gap-1" style={{ pointerEvents: 'none' }}>
                       <ExternalLink className="h-4 w-4" aria-hidden="true" />
                       Details
-                    </div>
-                    <div className="project-btn-outline flex items-center gap-1" style={{ pointerEvents: 'none' }}>
-                      <Code className="h-4 w-4" aria-hidden="true" />
-                      Code
                     </div>
                   </div>
                 </CardContent>

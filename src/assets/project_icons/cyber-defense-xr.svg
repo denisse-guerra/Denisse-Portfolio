@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Shield background -->
+  <path d="M100 20 L170 50 L170 100 C170 140 140 170 100 180 C60 170 30 140 30 100 L30 50 Z" 
+        fill="#EABEC3" stroke="#C88B95" stroke-width="3"/>
+  
+  <!-- VR Headset -->
+  <rect x="65" y="70" width="70" height="35" rx="8" fill="#8B5A65"/>
+  <circle cx="85" cy="87.5" r="10" fill="#FDD5DF"/>
+  <circle cx="115" cy="87.5" r="10" fill="#FDD5DF"/>
+  
+  <!-- Target/Crosshair -->
+  <circle cx="100" cy="130" r="20" fill="none" stroke="#8B5A65" stroke-width="2"/>
+  <circle cx="100" cy="130" r="12" fill="none" stroke="#8B5A65" stroke-width="2"/>
+  <line x1="100" y1="110" x2="100" y2="122" stroke="#8B5A65" stroke-width="2"/>
+  <line x1="100" y1="138" x2="100" y2="150" stroke="#8B5A65" stroke-width="2"/>
+  <line x1="80" y1="130" x2="92" y2="130" stroke="#8B5A65" stroke-width="2"/>
+  <line x1="108" y1="130" x2="120" y2="130" stroke="#8B5A65" stroke-width="2"/>
+</svg>

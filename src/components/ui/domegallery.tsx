@@ -7,40 +7,47 @@ import { techStackIcons } from "../../assets/techstack";
 // Destructure for backwards compatibility with existing code
 const {
     AWSLight: AWS,
-    Bootstrap,
-    C,
     CPP,
-    CS,
     CSS,
-    DartLight: Dart,
     Docker,
-    Electron,
-    ExpressJSLight: ExpressJS,
     FlutterLight: Flutter,
     GithubLight: Github,
-    GraphQLLight: GraphQL,
     HTML,
-    JavaLight: Java,
     JavaScript,
-    JQuery,
-    LaTeXLight: LaTeX,
     MaterialUILight: MaterialUI,
-    MongoDB,
-    NodeJSLight: NodeJS,
     NotionLight: Notion,
     NpmLight: Npm,
-    Postman,
     ReactLight: ReactIcon,
-    RedisLight: Redis,
     StackOverflowLight: StackOverflow,
-    TailwindCSSLight: TailwindCSS,
-    TensorFlowLight: TensorFlow,
-    ThreeJSLight: ThreeJS,
     TypeScript,
-    UnityLight: Unity,
     VercelLight: Vercel,
     ViteLight: Vite,
+    // Raster (PNG/WEBP/JPG) icons
+    Proxmox,
+    VMware,
+    SOCRadar,
+    Gitea,
+    Suricata,
+    OPNsense,
+    CloudCompare,
+    Slack,
+    Wireshark,
+    Tailscale,
+    UnrealEngine,
+    Python,
+    N8n,
+    Cursor,
+    GnuPG,
+    Debian,
+    Ubuntu,
+    Claude,
+    Posit,
+    LumaAI,
+    Polycam,
 } = techStackIcons;
+
+// Raster logos ship with opaque/white artwork, so their tiles get a white plate
+const isRasterLogo = (src: string) => /\.(png|jpe?g|webp)(\?.*)?$/i.test(src);
 
 type ImageItem = string | { src: string; alt?: string };
 
@@ -74,39 +81,55 @@ type ItemDef = {
 };
 
 const DEFAULT_IMAGES: ImageItem[] = [
+    // Primary Languages & Frameworks
+    { src: CPP, alt: "C++" },
+    { src: Python, alt: "Python" },
     { src: JavaScript, alt: "JavaScript" },
     { src: TypeScript, alt: "TypeScript" },
-    { src: NodeJS, alt: "Node.js" },
     { src: HTML, alt: "HTML" },
     { src: CSS, alt: "CSS" },
-    { src: Unity, alt: "Unity" },
-    { src: TailwindCSS, alt: "Tailwind CSS" },
-    { src: MongoDB, alt: "MongoDB" },
-    { src: ExpressJS, alt: "Express.js" },
-    { src: Docker, alt: "Docker" },
-    { src: GraphQL, alt: "GraphQL" },
-    { src: Redis, alt: "Redis" },
-    { src: C, alt: "C" },
-    { src: Flutter, alt: "Flutter" },
-    { src: Dart, alt: "Dart" },
-    { src: MaterialUI, alt: "Material UI" },
-    { src: Electron, alt: "Electron" },
-    { src: TensorFlow, alt: "TensorFlow" },
-    { src: ThreeJS, alt: "Three.js" },
-    { src: Vite, alt: "Vite" },
-    { src: Vercel, alt: "Vercel" },
-    { src: Bootstrap, alt: "Bootstrap" },
-    { src: JQuery, alt: "jQuery" },
-    { src: Java, alt: "Java" },
+
+    // Frameworks & Libraries
     { src: ReactIcon, alt: "React" },
-    { src: CS, alt: "C#" },
+    { src: Flutter, alt: "Flutter" },
+    { src: MaterialUI, alt: "Material UI" },
+
+    // Infrastructure & DevOps
+    { src: Docker, alt: "Docker" },
     { src: AWS, alt: "AWS" },
+    { src: Proxmox, alt: "Proxmox VE" },
+    { src: VMware, alt: "VMware Workstation" },
+    { src: Ubuntu, alt: "Ubuntu" },
+    { src: Debian, alt: "Debian" },
     { src: Github, alt: "GitHub" },
-    { src: Postman, alt: "Postman" },
-    { src: CPP, alt: "C++" },
-    { src: Npm, alt: "npm" },
+    { src: Gitea, alt: "Gitea" },
+    { src: Vercel, alt: "Vercel" },
+
+    // Security & Networking
+    { src: OPNsense, alt: "OPNsense" },
+    { src: Suricata, alt: "Suricata" },
+    { src: Wireshark, alt: "Wireshark" },
+    { src: Tailscale, alt: "Tailscale" },
+    { src: GnuPG, alt: "GnuPG" },
+    { src: SOCRadar, alt: "SOCRadar" },
+
+    // XR & Spatial Computing
+    { src: UnrealEngine, alt: "Unreal Engine 5" },
+    { src: CloudCompare, alt: "CloudCompare" },
+    { src: LumaAI, alt: "Luma AI" },
+    { src: Polycam, alt: "Polycam" },
+
+    // AI & Automation
+    { src: Claude, alt: "Claude" },
+    { src: Cursor, alt: "Cursor" },
+    { src: N8n, alt: "n8n" },
+
+    // Development Tools
+    { src: Vite, alt: "Vite" },
+    { src: Npm, alt: "NPM" },
+    { src: Posit, alt: "Posit" },
     { src: Notion, alt: "Notion" },
-    { src: LaTeX, alt: "LaTeX" },
+    { src: Slack, alt: "Slack" },
     { src: StackOverflow, alt: "Stack Overflow" },
 ];
 
@@ -574,6 +597,7 @@ export default function DomeGallery({
 
             const animatingOverlay = document.createElement("div");
             animatingOverlay.className = "enlarge-closing";
+            animatingOverlay.title = overlay.title || "Technology logo"; // Preserve tooltip during closing
             animatingOverlay.style.cssText = `
         position: absolute;
         left: ${overlayRelativeToRoot.left}px;
@@ -594,7 +618,10 @@ export default function DomeGallery({
             const originalImg = overlay.querySelector("img");
             if (originalImg) {
                 const img = originalImg.cloneNode() as HTMLImageElement;
-                img.style.cssText = "width: 100%; height: 100%; object-fit: cover;";
+                img.title = originalImg.alt; // Preserve tooltip in enlarged view
+                const raster = isRasterLogo(img.src);
+                if (raster) animatingOverlay.style.backgroundColor = "#ffffff";
+                img.style.cssText = `width: 100%; height: 100%; object-fit: ${raster ? "contain" : "cover"}; padding: ${raster ? "12%" : "0"}; box-sizing: border-box;`;
                 animatingOverlay.appendChild(img);
             }
 
@@ -721,10 +748,14 @@ export default function DomeGallery({
             parent.dataset.alt ||
             (el.querySelector("img") as HTMLImageElement)?.alt ||
             "";
+        overlay.title = rawAlt || "Technology logo"; // Add tooltip to enlarged overlay
         const img = document.createElement("img");
         img.src = rawSrc;
         img.alt = rawAlt;
-        img.style.cssText = `width:100%; height:100%; object-fit:cover; filter:${grayscale ? "grayscale(1)" : "none"};`;
+        img.title = rawAlt;
+        const raster = isRasterLogo(rawSrc);
+        if (raster) overlay.style.backgroundColor = "#ffffff";
+        img.style.cssText = `width:100%; height:100%; object-fit:${raster ? "contain" : "cover"}; padding:${raster ? "12%" : "0"}; box-sizing:border-box; filter:${grayscale ? "grayscale(1)" : "none"};`;
         overlay.appendChild(img);
         viewerRef.current!.appendChild(overlay);
         const tx0 = tileR.left - frameR.left;
@@ -925,9 +956,10 @@ export default function DomeGallery({
                                     }
                                 >
                                     <div
-                                        className="item__image absolute block overflow-hidden cursor-pointer bg-gray-200 transition-transform duration-300"
+                                        className="item__image absolute block overflow-hidden cursor-pointer transition-transform duration-300"
                                         role="button"
                                         tabIndex={0}
+                                        title={it.alt || "Technology logo"}
                                         aria-label={it.alt || "Open image"}
                                         onClick={(e) => {
                                             if (performance.now() - lastDragEndAt.current < 80)
@@ -943,13 +975,16 @@ export default function DomeGallery({
                                             inset: "10px",
                                             borderRadius: `var(--tile-radius, ${imageBorderRadius})`,
                                             backfaceVisibility: "hidden",
+                                            backgroundColor: isRasterLogo(it.src) ? "#ffffff" : "transparent",
+                                            padding: isRasterLogo(it.src) ? "12%" : "0",
                                         }}
                                     >
                                         <img
                                             src={it.src}
                                             draggable={false}
                                             alt={it.alt}
-                                            className="w-full h-full object-cover pointer-events-none"
+                                            title={it.alt}
+                                            className={`w-full h-full pointer-events-none ${isRasterLogo(it.src) ? "object-contain" : "object-cover"}`}
                                             style={{
                                                 backfaceVisibility: "hidden",
                                                 filter: `var(--image-filter, ${grayscale ? "grayscale(1)" : "none"})`,

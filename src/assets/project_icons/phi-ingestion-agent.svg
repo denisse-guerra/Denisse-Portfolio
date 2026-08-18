@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Medical shield background -->
+  <path d="M100 25 L165 50 L165 95 C165 130 140 155 100 165 C60 155 35 130 35 95 L35 50 Z" 
+        fill="#EABEC3" stroke="#C88B95" stroke-width="3"/>
+  
+  <!-- Medical cross -->
+  <rect x="93" y="65" width="14" height="50" rx="2" fill="#8B5A65"/>
+  <rect x="82" y="76" width="36" height="14" rx="2" fill="#8B5A65"/>
+  
+  <!-- AI Brain/Neural Network nodes -->
+  <circle cx="70" cy="120" r="4" fill="#8B5A65"/>
+  <circle cx="85" cy="135" r="4" fill="#8B5A65"/>
+  <circle cx="100" cy="145" r="5" fill="#C88B95"/>
+  <circle cx="115" cy="135" r="4" fill="#8B5A65"/>
+  <circle cx="130" cy="120" r="4" fill="#8B5A65"/>
+  
+  <!-- Neural network connections -->
+  <line x1="70" y1="120" x2="85" y2="135" stroke="#8B5A65" stroke-width="1.5" opacity="0.6"/>
+  <line x1="85" y1="135" x2="100" y2="145" stroke="#8B5A65" stroke-width="1.5" opacity="0.6"/>
+  <line x1="100" y1="145" x2="115" y2="135" stroke="#8B5A65" stroke-width="1.5" opacity="0.6"/>
+  <line x1="115" y1="135" x2="130" y2="120" stroke="#8B5A65" stroke-width="1.5" opacity="0.6"/>
+  <line x1="70" y1="120" x2="100" y2="145" stroke="#8B5A65" stroke-width="1" opacity="0.4"/>
+  <line x1="130" y1="120" x2="100" y2="145" stroke="#8B5A65" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Document/pipeline flow indicators -->
+  <rect x="50" y="40" width="20" height="15" rx="2" fill="none" stroke="#8B5A65" stroke-width="2"/>
+  <rect x="130" y="40" width="20" height="15" rx="2" fill="none" stroke="#8B5A65" stroke-width="2"/>
+  
+  <!-- Pipeline arrows -->
+  <path d="M70 47.5 L85 47.5" stroke="#8B5A65" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M115 47.5 L125 47.5" stroke="#8B5A65" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8B5A65" />
+    </marker>
+  </defs>
+  
+  <!-- YARA/Scan indicator (magnifying glass) -->
+  <circle cx="60" cy="105" r="6" fill="none" stroke="#8B5A65" stroke-width="2"/>
+  <line x1="64" y1="109" x2="68" y2="113" stroke="#8B5A65" stroke-width="2"/>
+</svg>

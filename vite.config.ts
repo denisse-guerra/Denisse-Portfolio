@@ -4,9 +4,9 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  // GitHub Pages serves this project from https://<user>.github.io/portfolio-template/,
+  // GitHub Pages serves this project from https://<user>.github.io/Denisse-Portfolio/,
   // so built asset URLs must be prefixed with the repository name.
-  base: mode === 'production' ? '/portfolio-template/' : '/',
+  base: mode === 'production' ? '/Denisse-Portfolio/' : '/',
   plugins: [react()],
   resolve: {
     alias: {

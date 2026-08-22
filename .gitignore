@@ -312,7 +312,7 @@ ENV/
 .zsh_history
 .zsh_sessions
 *.o
-*.obj
+# *.obj (tracked by Git LFS for 3D models)
 *.exe
 *.dll
 *.so

@@ -3,7 +3,10 @@ import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  // GitHub Pages serves this project from https://<user>.github.io/portfolio-template/,
+  // so built asset URLs must be prefixed with the repository name.
+  base: mode === 'production' ? '/portfolio-template/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -31,4 +34,4 @@ export default defineConfig({
   css: {
     devSourcemap: false,
   },
-})
+}))

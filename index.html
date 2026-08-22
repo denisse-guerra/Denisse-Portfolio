@@ -7,17 +7,6 @@
     <!-- DNS prefetch and preconnect for faster resource loading -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Preload critical images with better sizing -->
-    <link rel="preload" as="image" href="/src/assets/aboutme_journal-400w.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
-    <link rel="preload" as="image" href="/src/assets/aboutme_journal-800w.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
-    <!-- Preload first few stickers for above-the-fold content -->
-    <link rel="preload" as="image" href="/src/assets/sticker_1.webp" type="image/webp">
-    <link rel="preload" as="image" href="/src/assets/sticker_2.webp" type="image/webp">
-    <link rel="preload" as="image" href="/src/assets/sticker_3.webp" type="image/webp">
-    <link rel="preload" as="image" href="/src/assets/sticker_4.webp" type="image/webp">
-    <!-- Font preloading to reduce network dependency chain -->
-    <link rel="preload" as="font" href="/src/assets/makcasa/Makcasa-Regular.ttf" type="font/ttf" crossorigin>
-    <link rel="preload" as="font" href="/src/assets/dk_crayonista/DK Crayonista.ttf" type="font/ttf" crossorigin>
     <title>Denisse Guerra - Your Trusted Partner in Building Out Of This Reality Tech</title>
     <style>
       /* Critical CSS for initial render - Above the fold styles */
@@ -66,17 +55,7 @@
         contain-intrinsic-size: 0 200px;
       }
       /* Optimize animations - removed global transform-style that breaks fixed positioning */
-      /* Font faces with swap for better performance */
-      @font-face {
-        font-family: 'Makcasa';
-        src: url('/src/assets/makcasa/Makcasa-Regular.ttf') format('truetype');
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'DK Crayonista';
-        src: url('/src/assets/dk_crayonista/DK Crayonista.ttf') format('truetype');
-        font-display: swap;
-      }
+      /* Font faces are declared in App.css so Vite can resolve and hash them */
     </style>
   </head>
   <body>

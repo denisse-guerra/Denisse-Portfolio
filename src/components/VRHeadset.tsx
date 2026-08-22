@@ -79,8 +79,15 @@ const VRHeadset: React.FC<VRHeadsetProps> = ({ onHeadsetActivated }) => {
     const headsetGroup = new THREE.Group();
     scene.add(headsetGroup);
 
+    // Assets in public/ are referenced with a leading slash, but the site is served
+    // from a sub-path on GitHub Pages, so rewrite them onto Vite's base URL.
+    const assetManager = new THREE.LoadingManager();
+    assetManager.setURLModifier((url) =>
+      url.startsWith('/') ? `${import.meta.env.BASE_URL}${url.slice(1)}` : url
+    );
+
     // Texture Loader
-    const textureLoader = new THREE.TextureLoader();
+    const textureLoader = new THREE.TextureLoader(assetManager);
     
     // Configure texture encoding for proper color representation
     const configureTexture = (texture: THREE.Texture) => {
@@ -131,7 +138,7 @@ const VRHeadset: React.FC<VRHeadsetProps> = ({ onHeadsetActivated }) => {
     };
 
     // Load Apple Vision Pro Model
-    const loader = new OBJLoader();
+    const loader = new OBJLoader(assetManager);
     loader.load(
       '/APPLE-VisionPro-VR.obj',
       (obj) => {

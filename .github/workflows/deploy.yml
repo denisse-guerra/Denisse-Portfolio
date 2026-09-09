@@ -30,6 +30,9 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          VITE_GITHUB_URL: https://github.com/denisse-guerra
+          VITE_LINKEDIN_URL: https://www.linkedin.com/in/denisse-guerra-xr/
 
       # GitHub Pages has no SPA rewrite rule, so serve index.html for unknown
       # paths to keep client-side routes like /contact working on refresh.

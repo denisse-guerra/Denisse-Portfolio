@@ -1,9 +1,13 @@
-// Social Links Configuration - uses environment variables only
+const GITHUB_URL = import.meta.env.VITE_GITHUB_URL || 'https://github.com/denisse-guerra';
+const LINKEDIN_URL = import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/denisse-guerra-xr/';
+const EMAIL = import.meta.env.VITE_EMAIL || 'denisse02dy@gmail.com';
+
+// Social Links Configuration - environment variables with production fallbacks
 export const socialLinks = {
   // Main social profiles
-  github: import.meta.env.VITE_GITHUB_URL,
-  linkedin: import.meta.env.VITE_LINKEDIN_URL,
-  email: import.meta.env.VITE_EMAIL,
+  github: GITHUB_URL,
+  linkedin: LINKEDIN_URL,
+  email: EMAIL,
   
   // GitHub repository URLs
   repositories: {
@@ -17,9 +21,9 @@ export const socialLinks = {
   
   // Formatted display names (extracted from environment variables)
   display: {
-    github: import.meta.env.VITE_GITHUB_URL?.replace('https://', ''),
-    linkedin: import.meta.env.VITE_LINKEDIN_URL?.replace('https://', ''),
-    email: import.meta.env.VITE_EMAIL,
+    github: GITHUB_URL.replace(/^https?:\/\//, ''),
+    linkedin: LINKEDIN_URL.replace(/^https?:\/\//, ''),
+    email: EMAIL,
   }
 };
 

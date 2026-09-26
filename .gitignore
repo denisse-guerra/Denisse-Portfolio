@@ -288,6 +288,9 @@ ENV/
 *.mp3
 *.wav
 
+# Track project demo videos (Git LFS)
+!src/components/project/Videos/*.mp4
+
 # Database dumps
 *.sql
 *.dump

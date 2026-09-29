@@ -6,6 +6,7 @@ import VRHeadset from '../VRHeadset';
 import VRMuseumExperience from '../VRMuseumExperience';
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import { useThemeColors } from '../../hooks/useThemeColors';
+import { socialLinks } from '../../config/socialLinks';
 
 
 const About = () => {
@@ -90,6 +91,14 @@ const About = () => {
                 >
                   Contact →
                 </Link>
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-action-btn text-sm md:text-base px-4 py-2 md:px-5 md:py-2.5"
+                >
+                  Instagram →
+                </a>
               </div>
             </div>
             <div className="hidden md:block" style={{ 

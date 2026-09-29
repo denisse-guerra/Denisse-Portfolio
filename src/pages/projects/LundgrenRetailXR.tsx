@@ -1,9 +1,11 @@
 import ProjectLayout from '../../components/project/ProjectLayout';
 import ProjectHeader from '../../components/project/ProjectHeader';
 import ProjectOverview from '../../components/project/ProjectOverview';
+import ProjectVideo from '../../components/project/ProjectVideo';
 import TechStack from '../../components/project/TechStack';
 import { ShoppingCart, Users, Calendar, Presentation, Zap, Award } from 'lucide-react';
 import { LundgrenRetailXR } from '../../assets/project_icons';
+import lundgrenDemoVideo from '../../components/project/Videos/lundgren-demo.mp4';
 
 const LundgrenRetailXRPage = () => {
   const features = [
@@ -50,7 +52,17 @@ const LundgrenRetailXRPage = () => {
 
       <ProjectOverview
         paragraphs={[
-          "The Lundgren Retail XR Lab project delivered a cutting-edge research platform for studying consumer behavior and retail design in virtual environments. Named in honor of Terry Lundgren, the legendary CEO who transformed Macy's into a retail powerhouse, the lab provides researchers with unprecedented control over environmental variables that are impossible to manipulate in physical retail spaces.",
+          "The Lundgren Retail XR Lab project delivered a cutting-edge research platform for studying consumer behavior and retail design in virtual environments. Named in honor of Terry Lundgren, the legendary CEO who transformed Macy's into a retail powerhouse, the lab provides researchers with unprecedented control over environmental variables that are impossible to manipulate in physical retail spaces."
+        ]}
+      />
+
+      <ProjectVideo
+        src={lundgrenDemoVideo}
+        label="Lundgren Retail XR Lab demo video"
+      />
+
+      <ProjectOverview
+        paragraphs={[
           "This project demanded balancing technical innovation with academic rigor. Researchers needed the flexibility to rapidly prototype different store layouts, product placements, and visual merchandising strategies while maintaining precise control over experimental conditions and data collection. The platform's design enables A/B testing of retail concepts at scales and speeds impossible in physical environments.",
           "Beyond technical development, the project required sophisticated stakeholder management. Serving as primary technical liaison to the University of Arizona's College of Human Ecology, the role involved translating academic research requirements into concrete software features, managing sprint timelines aligned with academic calendars, and delivering regular milestone demonstrations that balanced technical capabilities with research objectives.",
           "The project's impact extended beyond the lab itself. Live demonstrations to Terry Lundgren showcased how extended reality technology could transform retail education and industry research, helping secure ongoing support for spatial computing initiatives within the university's retail and consumer sciences programs."

@@ -1,9 +1,11 @@
 import ProjectLayout from '../../components/project/ProjectLayout';
 import ProjectHeader from '../../components/project/ProjectHeader';
 import ProjectOverview from '../../components/project/ProjectOverview';
+import ProjectVideo from '../../components/project/ProjectVideo';
 import TechStack from '../../components/project/TechStack';
 import { Shield, Target, Brain, Users, BookOpen, Zap } from 'lucide-react';
 import { CyberDefenseXR } from '../../assets/project_icons';
+import cyberTrainingVideo from '../../components/project/Videos/cyber-training.mp4';
 
 const CyberDefenseXRPage = () => {
   const features = [
@@ -50,7 +52,17 @@ const CyberDefenseXRPage = () => {
 
       <ProjectOverview
         paragraphs={[
-          "The Cyber Defense XR Training platform represents a paradigm shift in cybersecurity education, transforming abstract security concepts into tangible, interactive experiences. Traditional cybersecurity training often relies on theoretical lectures and flat-screen simulations that fail to capture the urgency and complexity of real incident response scenarios.",
+          "The Cyber Defense XR Training platform represents a paradigm shift in cybersecurity education, transforming abstract security concepts into tangible, interactive experiences. Traditional cybersecurity training often relies on theoretical lectures and flat-screen simulations that fail to capture the urgency and complexity of real incident response scenarios."
+        ]}
+      />
+
+      <ProjectVideo
+        src={cyberTrainingVideo}
+        label="Cyber Defense XR Training demo video"
+      />
+
+      <ProjectOverview
+        paragraphs={[
           "This project leverages extended reality technology to create fully immersive training environments where security professionals can practice identifying threats, analyzing attack patterns, and coordinating defensive responses in realistic virtual security operations centers. By spatializing security data and threat intelligence, trainees develop intuitive understanding of attack progression that translates directly to improved real-world performance.",
           "The platform's integration with the MITRE ATT&CK framework ensures training exercises map directly to documented adversary tactics and techniques. Each simulation presents realistic attack scenarios—from initial reconnaissance through lateral movement and data exfiltration—allowing defenders to practice the entire incident response lifecycle in a consequence-free environment.",
           "What distinguishes this project is its focus on team coordination and communication under pressure. Multi-user scenarios require trainees to coordinate roles, share intelligence, and make time-critical decisions as a cohesive unit, developing the soft skills that are just as critical as technical knowledge in real security operations."

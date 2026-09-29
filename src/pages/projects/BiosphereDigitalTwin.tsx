@@ -1,9 +1,11 @@
 import ProjectLayout from '../../components/project/ProjectLayout';
 import ProjectHeader from '../../components/project/ProjectHeader';
 import ProjectOverview from '../../components/project/ProjectOverview';
+import ProjectVideo from '../../components/project/ProjectVideo';
 import TechStack from '../../components/project/TechStack';
 import { Globe, Layers, Cpu, Eye, Database, TrendingUp } from 'lucide-react';
 import { BiosphereDigitalTwin } from '../../assets/project_icons';
+import bios2CompilationVideo from '../../components/project/Videos/bios2-compilation.mp4';
 
 const BiosphereDigitalTwinPage = () => {
   const features = [
@@ -50,7 +52,17 @@ const BiosphereDigitalTwinPage = () => {
 
       <ProjectOverview
         paragraphs={[
-          "The Biosphere 2 Digital Twin project transformed one of the world's most complex environmental research facilities into an explorable virtual environment. Biosphere 2, the massive ecological laboratory housing multiple self-contained biomes, presents unique challenges for spatial documentation—intricate architectural features, dense vegetation, and overlapping environmental systems that traditional documentation methods struggle to capture comprehensively.",
+          "The Biosphere 2 Digital Twin project transformed one of the world's most complex environmental research facilities into an explorable virtual environment. Biosphere 2, the massive ecological laboratory housing multiple self-contained biomes, presents unique challenges for spatial documentation—intricate architectural features, dense vegetation, and overlapping environmental systems that traditional documentation methods struggle to capture comprehensively."
+        ]}
+      />
+
+      <ProjectVideo
+        src={bios2CompilationVideo}
+        label="Biosphere 2 Digital Twin compilation video"
+      />
+
+      <ProjectOverview
+        paragraphs={[
           "This project addressed those challenges through high-resolution LiDAR scanning followed by advanced point cloud processing and optimization. The resulting digital twin enables researchers, educators, and the public to navigate the entire facility in immersive detail, examining spatial relationships and architectural features that are difficult to appreciate through conventional photography or video.",
           "Beyond visualization, the digital twin establishes a foundation for advanced environmental monitoring. By creating a precise spatial baseline, the model enables future integration of real-time sensor data—temperature, humidity, CO2 levels—mapped directly onto the 3D representation, allowing researchers to visualize environmental gradients and ecological patterns that would otherwise require abstract data analysis.",
           "The project's success led directly to the conception and proposal of Biosphere 3, a next-generation facility that would expand on the digital twin concept from inception. The technical framework and visualization approach developed here demonstrated the potential for spatial computing to revolutionize how environmental research facilities are designed, monitored, and studied."

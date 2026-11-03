@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext'
 import { useThemeColors } from './hooks/useThemeColors'
 import { colors } from './styles/colors'
+import FaviconSwitcher from './components/FaviconSwitcher'
 import Navigation from './components/section/Navigation'
 import About from './components/section/About'
 import { divider } from './assets'
@@ -93,6 +94,7 @@ function AppContent() {
 
   return (
     <>
+      <FaviconSwitcher />
       <Navigation />
       <div className="app transition-colors duration-300" style={{ backgroundColor: isDarkMode ? '#101727' : undefined }}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
